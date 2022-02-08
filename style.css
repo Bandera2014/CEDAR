@@ -1,5 +1,5 @@
 footer{
-    background-color: black;
+    background-color: rgb(109,151,31);
     color: white;
     font-size: .60em;
     text-align: center;
@@ -84,3 +84,15 @@ a:hover {
     background-color: transparent;
     text-decoration: underline;
 }
+* {
+    box-sizing: border-box;
+}
+.column {
+    float: left;
+    padding: 10px;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
