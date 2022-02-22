@@ -117,3 +117,20 @@ body{
     padding-left: 2em;
     padding-right: 2em;
 }
+.newsCard{
+    /*padding-left: 20px;*/
+    background-color: #edffde;
+    padding: 2em;
+}
+.button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.contactBTN {background-color: #000000;}
