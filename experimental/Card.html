@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Add news Card</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!--uses bootstrap to style the website-->
+	<link rel="stylesheet" 
+        href="bootstrap.min.css">
+</head>
+
+<body class="container" style="margin-top: 50px; width: 50%; height:auto;">
+	
+	<h2 class="text-primary" style="margin-left: 15px; margin-bottom: 10px">
+		Add News Card
+	</h2>
+	
+	<form class="container" id="contactForm">
+
+		<div class="card">
+			<!--this prints out the different bars to enter-->
+			<div class="card-body">
+				<!--the next 4 will print out the text boxes to type in and use the class from bootstrap to pull the info the user entered-->
+				<div class="form-group">
+					<label for="exampleFormControlInput1">Name</label>
+					<input type="text" class="form-control" id="name" placeholder="Name">
+				</div>
+
+				<div class="form-group">
+					<label for="exampleFormControlInput1">Image</label>
+					<input type="text" class="form-control" id="logo" placeholder="Image(picture)">
+				</div>
+
+                <div class="form-group">
+					<label for="exampleFormControlInput1">Website</label>
+					<input type="text" class="form-control" id="web" placeholder="Website (Link))">
+				</div>
+				
+				<div class="form-group">
+					<label for="exampleFormControlInput1">Description</label>
+					<input type="text" class="form-control" id="desc" placeholder="Description">
+				</div>
+
+				<!--will print out a group of text boxes to input interest areas in and set their id-->
+				
+
+				<!--this will create the drop down menu to choose what type it is-->
+
+			</div>
+			<!--creates the button and will call the class to take everything in when it is pushed-->
+			<button type="submit" class="btn btn-primary"
+				style="margin: 15px;">Submit</button>
+		</div>
+	</form>
+	<!--this creates the back button. When it is clicked it takes you back to the html career fair website-->
+	<form class="container" method="post" action="careerFairWebsite.html">
+		<button class="btn btn-secondary"
+			style="margin: 15px;">Back</button>
+	</form>
+
+	<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+	
+	<script>	//turns it back into js
+		var firebaseConfig = {
+            apiKey: "AIzaSyA1_dUHFXMXQgNxthEBLxai0EGLCfwUCFE",
+            authDomain: "ceadernews-37721.firebaseapp.com",
+            projectId: "ceadernews-37721",
+            storageBucket: "ceadernews-37721.appspot.com",
+            messagingSenderId: "212862076579",
+            appId: "1:212862076579:web:199531aaa6a98fffe4e116",
+            measurementId: "G-9W20790L64"
+        };
+		//this starts the firebase
+		firebase.initializeApp(firebaseConfig);
+
+		var db = firebase.database();
+
+		var messagesRef = db.ref('Items');
+		//this listens to see if the button is clicked and keeps track of the time stamp that it has
+		document.getElementById('contactForm').addEventListener('submit', submitForm);
+
+		//this takes all the inputs from the user and puts them into the fire base function then clears the form
+		function submitForm(e) {e.preventDefault();
+
+			// Get values
+			var name = getInputVal('name');
+			var logo = getInputVal('logo');
+            var web = getInputVal('web');
+            var desc = getInputVal('desc');
+
+			saveMessage(name,logo,web,desc);
+			document.getElementById('contactForm').reset();
+		}
+
+		// Function to get get form values
+		function getInputVal(id) {
+			return document.getElementById(id).value;
+		}
+
+		// Save message to firebase
+		function saveMessage(name,logo,web,desc) {
+			var newMessageRef = messagesRef.push();
+			newMessageRef.set({
+				name: name,
+                logo: logo,
+                web: web,
+                desc: desc
+			});
+		}
+	</script>
+
+
+</body>
+
+</html>

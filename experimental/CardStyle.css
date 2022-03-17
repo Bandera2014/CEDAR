@@ -1,0 +1,74 @@
+.item1 { grid-area: logo; }
+.item2 { grid-area: menu; }
+.item3 { grid-area: main; }
+.item4 { grid-area: title; }
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'logo title title title title title title title title title title '
+    'menu main main main main main main main main main main';
+  grid-gap: 10px;
+  background-color:#086d15;
+  padding: 50px;
+  
+}
+
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+
+body{
+    margin:0;
+    background-color: #ffffff;
+    color:#40407A;
+    font-family: Verdana, Arial, sans-serif;
+}
+
+h1{
+    grid-row-start:    2;
+    grid-row-end:      3;
+    grid-column-start: 1;
+    grid-column-end:   2;
+    color:#FFF;
+    font-size:300%;
+
+
+}
+.interests{
+    text-align: center;
+    font-weight: bold;
+    font-size: 1em;
+    padding-top: 5px;
+    grid-column: 1;
+    grid-row: 2;
+    padding-top:.5em;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+}
+
+.logo{
+    background-image:url("careerFairPictures/toyota.png");
+    background-repeat: no-repeat;
+    height: 150px;
+    width: 150px;
+    background-size: 100% 100%;
+    color: #231814;
+    
+    
+
+}
+.discription{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    font-size:100%;
+}
