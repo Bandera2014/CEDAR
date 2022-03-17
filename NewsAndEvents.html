@@ -25,6 +25,36 @@
             </ul>
         </nav>
         <main>
+            <script>
+                function addCard(l){}
+                var prevDiv = document.getElementById("body-output").innerHTML;
+                var div = `<div class="card mb-3" style="max-width: 75%;" align="left">
+                            <div class="row g-0">
+                            <div class="col-md-2">
+                            <img src="{0}" class="img-fluid rounded-start" style="padding:10px;" alt="{1} logo" >
+                            </div>
+                            <div class="col-md-7">
+                            <div class="card-body">
+                            <h5 class="card-title" style="font-size: 27px;">{1}</h5>
+                            <div class="card-body">`.format(l["logo"],l["name"]);
+                                if (l["type"]==="College"){
+                                        div = div + `<a href="{0}" class="btn btn-danger">{1} Website</a>`.format(l["web"],l["name"]);
+                                    } else if (l["type"]==="Company"){
+                                        div = div + `<a href="{0}" class="btn btn-primary">{1} Website</a>`.format(l["web"],l["name"]);
+                                    } else {
+                                        div = div + `<a href="{0}" class="btn btn-success">{1} Website</a>`.format(l["web"],l["name"]);
+                                    }
+                                    div = div + `   </div>
+                                                    <p class="card-text">{0}</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3" align="center" style="padding-right:15px;padding-left:15px;">
+                                            <div class="card-body">
+                                                <p class="card-text">Interest Areas:</p>
+                                            </div> 
+                                            <ul class="list-group list-group-flush">`.format(l["desc"]);
+                                            document.getElementById("body-output").innerHTML = prevDiv + div;
+            </script>
             <br>
             <div class="newsCard">
                 <img src="Images/givenCedarLogo.png" alt="news/update img" style="float: left; margin-right: 15px;" width="100" height="100">
